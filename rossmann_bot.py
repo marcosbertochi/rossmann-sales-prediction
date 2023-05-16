@@ -5,7 +5,8 @@ from flask import Flask,request,Response
 import os
 
 #constants
-TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+#TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+TOKEN = '5648527712:AAFmY3gZ98E70mM0qPS5GfMSop7rTwP-VrA'
 
 #info about the Bot
 #https://api.telegram.org/bot5648527712:AAFmY3gZ98E70mM0qPS5GfMSop7rTwP-VrA/getMe
@@ -92,7 +93,7 @@ def parse_message(message):
 #API initialize
 app = Flask(__name__)
 
-@app.route('/rossmann/predict',methods=['GET','POST'])
+@app.route('/',methods=['GET','POST'])
 def index():
 	if request.method == 'POST':
 		message = request.get_json()

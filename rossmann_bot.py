@@ -63,7 +63,7 @@ def load_data(store_id):
 def predict(data):
 
 	#API call
-	url = 'https://rossmann-sales-prediction-1y6w.onrender.com/rossmann/predict'
+	url = 'https://rossmann-sales-prediction-1y6w.onrender.com/'
 	header = {'Content-type':'application/json'}
 
 	r = requests.post(url, data=data, headers=header)

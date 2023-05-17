@@ -77,8 +77,8 @@ def predict(data):
 def parse_message(message):
 
 	print(message)
-	chat_id = message['message']['chat']['id']
-	store_id = message['message']['text']
+	chat_id = message["message"]["chat"]["id"]
+	store_id = message["message"]["text"]
 
 	store_id = store_id.replace('/','')
 
@@ -98,20 +98,25 @@ app = Flask(__name__)
 def index():
 	if request.method == 'POST':
 		message = request.get_json()
+		print('Message received')
 		chat_id, store_id = parse_message(message)
+		print('Message parsed')
 
 		if store_id != 'error':
 			#loading data
 			data = load_data(store_id)
+			print('Data loaded')
 
 			if data != 'error':
 				#prediction
 				d1 = predict(data)
+				print('Prediction OK!')
 				#calculation
 				d2 = d1[['store','prediction']].groupby('store').sum().reset_index()
 				#send message
 				msg = 'Store Number {} will sell R${:,.2f} in next 6 weeks'.format(d2['store'].values[0], d2['prediction'].values[0])
 				send_message(chat_id,msg)
+				print('Return OK!')
 				return Response('Ok',status=200)
 			else:
 				send_message(chat_id, 'Store Not Found')

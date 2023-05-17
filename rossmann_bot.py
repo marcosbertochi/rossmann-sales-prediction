@@ -18,7 +18,7 @@ TOKEN = '5648527712:AAFmY3gZ98E70mM0qPS5GfMSop7rTwP-VrA'
 #https://api.telegram.org/bot5648527712:AAFmY3gZ98E70mM0qPS5GfMSop7rTwP-VrA/sendMessage?chat_id=1129123995&text=Hi Marcos, I'm doing good, tks!
 
 #webhook => to link telegram api to bot
-#https://api.telegram.org/bot5648527712:AAFmY3gZ98E70mM0qPS5GfMSop7rTwP-VrA/setWebhook?url=https://rossmann-sales-prediction-1y6w.onrender.com/
+#https://api.telegram.org/bot5648527712:AAFmY3gZ98E70mM0qPS5GfMSop7rTwP-VrA/setWebhook?url=https://rossmann-sales-prediction-fwa7.onrender.com
 
 
 def send_message(chat_id, text):
@@ -63,8 +63,9 @@ def load_data(store_id):
 def predict(data):
 
 	#API call
-	url = 'https://rossmann-sales-prediction-1y6w.onrender.com/'
+	url = 'https://rossmann-sales-prediction-fwa7.onrender.com/rossmann/predict'
 	header = {'Content-type':'application/json'}
+	data=data
 
 	r = requests.post(url, data=data, headers=header)
 	print('Status Code {}'.format(r.status_code))

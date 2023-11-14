@@ -47,7 +47,8 @@ def rossmann_predict():
         
         if isinstance(test_json,dict): #if equals dict, means only 1 line 
             
-            store_data = load_data(test_json.get['store_id'])
+            store_id = test_json.get['store_number']
+            store_data = load_data(store_id)
 
     else: #empty
         return Response({}, status=200, mimetype='application/json') 

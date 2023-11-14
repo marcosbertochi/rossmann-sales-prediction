@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 
 #define endpoint
-@app.route('/rossmann/predict',methods=['POST'])
+@app.route('/predict',methods=['POST'])
 def rossmann_predict():
 
     #getting input

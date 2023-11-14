@@ -28,9 +28,9 @@ def load_data(store_id):
 		df_test = df_test.drop('Id',axis=1)
 
 	else:
-		data = 'Store Number doesnt exists'
+		df_test = 'Store Number doesnt exists'
 
-	return data
+	return df_test
 
 
 #initialize API

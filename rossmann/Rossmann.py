@@ -167,5 +167,5 @@ class Rossmann(object):
         #join prediction into original data
         original_data['prediction'] = np.expm1(pred)
         
-        #returning to API in JSON format
-        return original_data.to_json(orient='records',date_format='iso')
+        #returning data
+        return original_data
